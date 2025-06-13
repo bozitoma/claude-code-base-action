@@ -29,6 +29,10 @@ export function prepareRunConfig(
 ): PreparedConfig {
   const claudeArgs = [...BASE_ARGS];
 
+  // Add model specification - use environment variable or default to claude-3-5-sonnet
+  const model = "claude-3-5-sonnet-20241022";
+  claudeArgs.push("--model", model);
+
   if (options.allowedTools) {
     claudeArgs.push("--allowedTools", options.allowedTools);
   }
